@@ -27,6 +27,6 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="renen.project.waterapp.HomeFragment"
+        android:name="renen.project.waterapp.ui.home.HomeFragment"
         android:label="HomeFragment" />
 </navigation>
