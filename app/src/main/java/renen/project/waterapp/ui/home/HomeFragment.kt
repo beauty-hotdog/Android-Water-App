@@ -32,6 +32,8 @@ class HomeFragment : Fragment() {
 
     }
 
+    var waterPercentage = 0f
+
     fun setupGraph() {
         val color = IntArray(1)
         color[0] = ContextCompat.getColor(
@@ -39,10 +41,17 @@ class HomeFragment : Fragment() {
             R.color.green
         )
         slimChart.colors = color
-        val stats = FloatArray(1)
-        stats[0] = 75f
-        slimChart.stats = stats
+
+        fun setupStats() {
+            val stats = FloatArray(1)
+            stats[0] = waterPercentage
+            slimChart.stats = stats
+        }
+        setupStats()
+
         slimChart.setOnClickListener {
+            waterPercentage += 10f
+            setupStats()
             slimChart.playStartAnimation()
         }
     }
