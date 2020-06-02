@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import renen.project.waterapp.R
 
@@ -29,6 +31,9 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupGraph()
         setupAdapter()
+        btnHistory.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
+        }
 
     }
 
