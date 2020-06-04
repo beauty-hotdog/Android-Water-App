@@ -9,7 +9,7 @@ data class DrinkIntake(
     @PrimaryKey val drinkIntakeId: Int,
     @ColumnInfo(name = "volume") val volume: Int,
     @ColumnInfo(name = "timestamp") val timestamp: Long,
-    @ColumnInfo(name = "drinkTypeID") val drinkTypeID: Int,
-    @ColumnInfo(name = "dayID") val dayID: Int
+    @ColumnInfo(name = "drinkTypeId") val drinkTypeId: Int,
+    @ColumnInfo(name = "dayId") val dayId: Int
 
 )
