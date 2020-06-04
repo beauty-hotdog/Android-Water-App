@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import renen.project.waterapp.R
 import renen.project.waterapp.ui.home.DrinkBottomEntity
 import renen.project.waterapp.ui.home.HomeViewHolder
+import renen.project.waterapp.util.isLastElement
 
 class HistoryAdapter() : RecyclerView.Adapter<HistoryViewHolder>() {
 
@@ -20,10 +21,9 @@ class HistoryAdapter() : RecyclerView.Adapter<HistoryViewHolder>() {
     override fun getItemCount(): Int = list.size
 
 
-
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
 
-        holder.bind(list[position])
+        holder.bind(list[position], isLastElement(position, list.size))
     }
 
     fun setList(newList: List<HistoryAdapterEntity>) {
