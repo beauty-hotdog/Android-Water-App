@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import renen.project.waterapp.R
+import renen.project.waterapp.util.isLastElement
 
 class HomeAdapter() : RecyclerView.Adapter<HomeViewHolder>() {
 
@@ -19,7 +20,7 @@ class HomeAdapter() : RecyclerView.Adapter<HomeViewHolder>() {
 
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(list[position],position == list.size - 1)
+        holder.bind(list[position], isLastElement(position, list.size))
     }
 
     fun setList(newList: List<DrinkBottomEntity>) {
