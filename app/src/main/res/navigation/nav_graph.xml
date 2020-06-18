@@ -32,9 +32,16 @@
         <action
             android:id="@+id/action_homeFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="renen.project.waterapp.ui.history.HistoryFragment"
         android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="renen.project.waterapp.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

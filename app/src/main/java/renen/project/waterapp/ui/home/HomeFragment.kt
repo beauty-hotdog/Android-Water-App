@@ -34,7 +34,9 @@ class HomeFragment : Fragment() {
         btnHistory.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
         }
-
+        btnSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
+        }
     }
 
     var waterPercentage = 0f
