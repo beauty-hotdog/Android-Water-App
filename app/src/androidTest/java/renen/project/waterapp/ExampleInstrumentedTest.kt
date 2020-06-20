@@ -43,12 +43,14 @@ class ExampleInstrumentedTest {
             .check(matches(isDisplayed()))
         Thread.sleep(1000)
     }
+
     @Test
     fun history_test(){
         onView(withId(R.id.btnHistory))            // withId(R.id.my_view) is a ViewMatcher
             .perform(click())               // click() is a ViewAction
         Thread.sleep(1000)
     }
+
     @Test
     fun settings_test(){
         onView(withId(R.id.btnSettings))            // withId(R.id.my_view) is a ViewMatcher
