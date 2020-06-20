@@ -30,5 +30,25 @@ cache:
     - $HOME/.gradle/daemon #Cache daemon logs
     - $HOME/.gradle/native #Cache library downloaded from the gradle dependency
     - $HOME/.gradle/wrapper #Cache the gradle
+before_script:
+  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.3.. | bash
+  - nvm install 8
+  - node —version
+  - npm —version
+  - npm install -g appium
+  - echo y | android update sdk -a —no-ui —filter android-24
+  - echo y | android update sdk -a —no-ui —filter sys-img-armeabi-v7a-android-24
+  - android list targets | grep -E '^id:' | awk -F '"' '{$1=""; print $2}' # list all targets
+  - echo no | android create avd —force -n test -t android-24 —abi armeabi-v7a
+  - emulator -avd test -no-skin -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+  - adb wait-for-device get-serialno
+  - sleep 100
+  - chmod +x gradlew
+  - ./gradlew —version
+  - echo y |adb devices
+script:
+  - "./gradlew connectedAndroidTest"
 skip_cleanup: true # to upload artifacts created during the build
 dry-run: false
