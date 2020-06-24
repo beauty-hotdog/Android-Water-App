@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import renen.project.waterapp.App
+import renen.project.waterapp.MainActivity
 import renen.project.waterapp.R
 
 /**
@@ -38,6 +40,12 @@ class HomeFragment : Fragment() {
         btnSettings.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
         }
+
+        (requireActivity() as MainActivity).drinkViewModel.allDays.observe(
+            requireActivity(),
+            Observer {
+                println(it)
+            })
     }
 
     var waterPercentage = 0f
