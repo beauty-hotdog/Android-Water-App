@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/lato"
-            android:text="История"
+            android:text="@string/history"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintLeft_toLeftOf="parent"
