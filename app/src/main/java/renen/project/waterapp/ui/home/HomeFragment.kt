@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import renen.project.waterapp.App
 import renen.project.waterapp.R
 
 /**
@@ -31,7 +32,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupGraph()
         setupAdapter()
-        btnHistory.setOnClickListener{
+        btnHistory.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
         }
         btnSettings.setOnClickListener {
@@ -60,6 +61,7 @@ class HomeFragment : Fragment() {
             waterPercentage += 10f
             setupStats()
             slimChart.playStartAnimation()
+            (requireActivity().application as App).notificator.debugNotification(requireContext())
         }
     }
 
