@@ -33,6 +33,9 @@ class SettingsFragment : Fragment() {
         clTheme.setOnClickListener {
             rbTheme.isChecked = !rbTheme.isChecked
         }
+         clAbout.setOnClickListener{
+             findNavController().navigate(R.id.action_settingsFragment_to_aboutFragment)
+         }
 
         clGooglePlay.setOnClickListener {
             val appPackageName: String =
