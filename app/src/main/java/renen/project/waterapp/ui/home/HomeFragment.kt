@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import renen.project.waterapp.R
+import renen.project.waterapp.logic.NewsController
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -37,6 +38,8 @@ class HomeFragment : Fragment() {
         btnSettings.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
         }
+
+        txvNews.text = NewsController.getType(listOf(), requireContext())
     }
 
     var waterPercentage = 0f
