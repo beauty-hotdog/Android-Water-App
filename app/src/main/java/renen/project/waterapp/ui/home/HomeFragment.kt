@@ -15,13 +15,14 @@ import renen.project.waterapp.App
 import renen.project.waterapp.MainActivity
 import renen.project.waterapp.R
 import renen.project.waterapp.logic.NewsController
+import renen.project.waterapp.util.BaseFragment
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
-    lateinit var wow: HomeAdapter
+
 
     val adapter = HomeAdapter()
 
@@ -34,7 +35,6 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        wow.setList(listOf())
         super.onViewCreated(view, savedInstanceState)
         setupGraph()
         setupAdapter()

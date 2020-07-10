@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_settings.*
 import renen.project.waterapp.R
+import renen.project.waterapp.util.BaseFragment
 
-class AboutFragment: Fragment() {
+class AboutFragment: BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

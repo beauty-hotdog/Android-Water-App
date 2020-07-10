@@ -12,9 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.events.calendar.views.EventsCalendar
 import kotlinx.android.synthetic.main.fragment_history.*
 import renen.project.waterapp.R
+import renen.project.waterapp.util.BaseFragment
 import java.util.*
 
-class HistoryFragment : Fragment(), EventsCalendar.Callback  {
+class HistoryFragment : BaseFragment(), EventsCalendar.Callback  {
 
     val adapter = HistoryAdapter()
 

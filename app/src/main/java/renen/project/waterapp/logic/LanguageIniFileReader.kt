@@ -8,36 +8,17 @@ import java.nio.charset.StandardCharsets
 import java.util.*
 import kotlin.collections.HashMap
 
-class LanguageIniFileReader(private val context: Context)
-     {
+class LanguageIniFileReader(private val context: Context) {
 
-    private var languageId = 0
-
-     fun readNextLanguage(): HashMap<String, String> {
-         return readIniFile(R.raw.translation_russian)
-//        return when (languageId){
-//            0 -> {
-//                languageId = 1
-//                readIniFile(R.raw.translation_russian)
-//            }
-//            1 -> {
-//                languageId = 2
-//                readIniFile(R.raw.translation_english)
-//            }
-//            else -> {
-//                languageId = 0
-//                readIniFile(R.raw.translation_swedish)
-//            }
-//        }
-    }
-
-    private fun readIniFile(resource: Int): HashMap<String, String>{
+    fun readIniFile(resource: Int): HashMap<String, String> {
         val properties = Properties()
             .apply {
                 load(
                     BufferedReader(
-                        InputStreamReader(context.resources.openRawResource(resource),
-                            StandardCharsets.UTF_8)
+                        InputStreamReader(
+                            context.resources.openRawResource(resource),
+                            StandardCharsets.UTF_8
+                        )
                     )
                 )
             }

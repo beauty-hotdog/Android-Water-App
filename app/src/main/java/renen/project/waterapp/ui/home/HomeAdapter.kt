@@ -27,6 +27,6 @@ class HomeAdapter() : RecyclerView.Adapter<HomeViewHolder>() {
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()
-        val wow = 2 / 0
+
     }
 }
