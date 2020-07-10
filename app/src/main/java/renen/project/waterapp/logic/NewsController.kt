@@ -5,9 +5,11 @@ import renen.project.database.logicentity.DayWithDrinks
 
 object NewsController {
 
-    val newsKeys = listOf<String>("news1", "news2","news3", "news4", "news5", "news6", "news7",
-        "news8", "news9","news10", "news11", "news12", "news13", "news14", "news15", "news16",
-        "news17", "news18", "news19", "news20", "news21")
+//    val newsKeys = listOf<String>("news1", "news2","news3", "news4", "news5", "news6", "news7",
+//        "news8", "news9","news10", "news11", "news12", "news13", "news14", "news15", "news16",
+//        "news17", "news18", "news19", "news20", "news21")
+
+    val newsKeys = listOf<String>("oops")
 
     fun getType(list: List<DayWithDrinks>, context: Context): String {
 

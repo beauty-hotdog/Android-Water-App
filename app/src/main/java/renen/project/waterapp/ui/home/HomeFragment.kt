@@ -21,6 +21,8 @@ import renen.project.waterapp.logic.NewsController
  */
 class HomeFragment : Fragment() {
 
+    lateinit var wow: HomeAdapter
+
     val adapter = HomeAdapter()
 
     override fun onCreateView(
@@ -32,6 +34,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        wow.setList(listOf())
         super.onViewCreated(view, savedInstanceState)
         setupGraph()
         setupAdapter()
