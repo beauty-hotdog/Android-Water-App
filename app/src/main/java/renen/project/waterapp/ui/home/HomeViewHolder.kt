@@ -7,7 +7,7 @@ import renen.project.waterapp.constant.dpToPx16
 
 class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) { //конструктор
     fun bind(drinkBottomEntity: DrinkBottomEntity, last: Boolean) {
-        itemView.imgPic.setImageResource(drinkBottomEntity.resId)
+        itemView.imgPic.setImageResource(drinkBottomEntity.resource)
         val lp = itemView.clBackground.layoutParams as RecyclerView.LayoutParams
         var rightMargin = 0
         if (last) {

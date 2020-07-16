@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class DrinkType(
     @PrimaryKey val drinkTypeId: Int,
+    @ColumnInfo(name="resId") val resId: Int,
     @ColumnInfo(name = "waterPercentage") val waterPercentage: Int,
     @ColumnInfo(name = "influence") val influence: Boolean,
     @ColumnInfo(name = "text") val text: String

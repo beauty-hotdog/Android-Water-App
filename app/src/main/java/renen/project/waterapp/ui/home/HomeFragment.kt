@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import renen.project.database.entity.DrinkType
 import renen.project.waterapp.App
 import renen.project.waterapp.MainActivity
 import renen.project.waterapp.R
@@ -21,7 +22,6 @@ import renen.project.waterapp.util.BaseFragment
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class HomeFragment : BaseFragment() {
-
 
 
     val adapter = HomeAdapter()
@@ -37,7 +37,6 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupGraph()
-        setupAdapter()
         btnHistory.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_historyFragment)
         }
@@ -46,6 +45,12 @@ class HomeFragment : BaseFragment() {
         }
 
         txvNews.text = NewsController.getType(listOf(), requireContext())
+
+        drinkViewModel.allDrinkTypes.observe(viewLifecycleOwner,
+            Observer { list ->
+                println(list)
+                setupAdapter(list)
+            })
     }
 
     var waterPercentage = 0f
@@ -73,25 +78,14 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    fun setupAdapter() {
+    fun setupAdapter(entityList: List<DrinkType>) {
         rvDrinkBottom.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         rvDrinkBottom.adapter = adapter
         val list = ArrayList<DrinkBottomEntity>()
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_water))
-        list.add(DrinkBottomEntity(R.drawable.ic_cup_coffee))
+        for (x in entityList) {
+            list.add(DrinkBottomEntity(x.resId, x.waterPercentage, x.influence, x.text))
+        }
         adapter.setList(list)
 
     }
