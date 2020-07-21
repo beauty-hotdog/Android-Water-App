@@ -43,7 +43,9 @@ class HomeFragment : BaseFragment() {
         btnSettings.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_settingsFragment)
         }
-
+        btnTheme.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_userInfoFragment)
+        }
         txvNews.text = NewsController.getType(listOf(), requireContext())
 
         drinkViewModel.allDrinkTypes.observe(viewLifecycleOwner,

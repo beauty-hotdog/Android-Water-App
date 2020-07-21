@@ -19,6 +19,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -36,4 +39,8 @@
         android:id="@+id/aboutFragment"
         android:name="renen.project.waterapp.ui.about.AboutFragment"
         android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="renen.project.waterapp.ui.userinfo.UserInfoFragment"
+        android:label="UserInfoFragment" />
 </navigation>
