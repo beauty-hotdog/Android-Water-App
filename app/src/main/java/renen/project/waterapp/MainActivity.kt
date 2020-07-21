@@ -1,6 +1,7 @@
 package renen.project.waterapp
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
         translationViewModel = ViewModelProvider(this).get(TranslationViewModel::class.java)
         translationViewModel.postLanguage(Language.RUSSIAN, this)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         setContentView(R.layout.activity_main)
     }
 
